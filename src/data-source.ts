@@ -1,7 +1,7 @@
 import { DataSource } from "typeorm"
 import path from "path"
 import "dotenv/config"
-import { Anuncio } from "./entities/anuncios.entity"
+import { Anuncio } from "./entities/advertisement.entity"
 import { createAnuncio1681241216367 } from "./migrations/1681241216367-createAnuncio"
 
 const AppDataSource = new DataSource(

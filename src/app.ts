@@ -1,12 +1,15 @@
-import "reflect-metadata";
-import "express-async-errors";
-import express from "express";
-import { errorHandle } from "./errors/errors";
+import "reflect-metadata"
+import "express-async-errors"
+import express from "express"
+import { errorHandle } from "./errors/errors"
 import cors from "cors"
-import { anuncioRoutes } from "./routes/anuncio.routes";
+import { advertisementRoutes } from "./routes/advertisement.routes"
+import { pagination } from "typeorm-pagination"
+
 
 const app = express()
 app.use(express.json())
+app.use(pagination)
 
 app.use(
     cors({
@@ -21,7 +24,7 @@ app.use(
     })
 )
 
-app.use("/anuncios", anuncioRoutes)
+app.use("/advertisement", advertisementRoutes)
 
 app.use(errorHandle)
 

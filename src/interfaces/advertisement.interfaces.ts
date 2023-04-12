@@ -1,4 +1,4 @@
-interface IAnuncioRequest {
+interface IAdvertisementRequest {
     marca: string
     modelo: string
     ano: string
@@ -10,7 +10,7 @@ interface IAnuncioRequest {
     imagens: string[]
 }
 
-interface IAnuncioResponse {
+interface IAdvertisementResponse {
     id: string,
     marca: string
     modelo: string
@@ -23,7 +23,7 @@ interface IAnuncioResponse {
     imagens: string[]
 }
 
-interface IAnuncioUpdate {
+interface IAdvertisementUpdate {
     marca?: string
     modelo?: string
     ano?: string
@@ -36,7 +36,7 @@ interface IAnuncioUpdate {
 }
 
 export {
-    IAnuncioRequest,
-    IAnuncioResponse,
-    IAnuncioUpdate
+    IAdvertisementRequest,
+    IAdvertisementResponse,
+    IAdvertisementUpdate
 }

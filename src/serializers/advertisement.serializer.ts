@@ -1,8 +1,8 @@
 import * as yup from "yup"
-import { IAnuncioRequest, IAnuncioResponse, IAnuncioUpdate } from "../interfaces/anuncio.interfaces"
+import { IAdvertisementRequest, IAdvertisementResponse, IAdvertisementUpdate } from "../interfaces/advertisement.interfaces"
 import { SchemaOf } from "yup"
 
-const criarAnuncioSerializer: SchemaOf<IAnuncioRequest> = yup.object().shape({
+const createAdvertisementSerializer: SchemaOf<IAdvertisementRequest> = yup.object().shape({
     marca: yup.string().required(),
     modelo: yup.string().required(),
     ano: yup.string().required(),
@@ -14,7 +14,7 @@ const criarAnuncioSerializer: SchemaOf<IAnuncioRequest> = yup.object().shape({
     imagens: yup.array().required()
 })
 
-const retornarAnuncioSerializer: SchemaOf<IAnuncioResponse> = yup.object().shape({
+const returnAdvertisementSerializer: SchemaOf<IAdvertisementResponse> = yup.object().shape({
     id: yup.string(),
     marca: yup.string(),
     modelo: yup.string(),
@@ -30,7 +30,7 @@ const retornarAnuncioSerializer: SchemaOf<IAnuncioResponse> = yup.object().shape
     atualizadoEm: yup.date()
 })
 
-const atualizarAnuncioSerializer: SchemaOf<IAnuncioUpdate> = yup.object().shape({
+const updateAdvertisementSerializer: SchemaOf<IAdvertisementUpdate> = yup.object().shape({
     marca: yup.string(),
     modelo: yup.string(),
     ano: yup.string(),
@@ -42,11 +42,11 @@ const atualizarAnuncioSerializer: SchemaOf<IAnuncioUpdate> = yup.object().shape(
     imagens: yup.array()
 })
 
-const listarAnunciosSerializer = yup.array(retornarAnuncioSerializer)
+const getAdvertisementsSerializer = yup.array(returnAdvertisementSerializer)
 
 export {
-    criarAnuncioSerializer,
-    retornarAnuncioSerializer,
-    atualizarAnuncioSerializer,
-    listarAnunciosSerializer
+    createAdvertisementSerializer,
+    returnAdvertisementSerializer,
+    updateAdvertisementSerializer,
+    getAdvertisementsSerializer
 }
