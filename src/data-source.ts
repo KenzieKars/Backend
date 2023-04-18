@@ -2,7 +2,8 @@ import { DataSource, DataSourceOptions } from "typeorm"
 import path from "path"
 import "dotenv/config"
 import { Anuncio } from "./entities/advertisement.entity"
-import { createAnuncio1681241216367 } from "./migrations/1681241216367-createAnuncio"
+import { User } from "./entities/user.entity"
+import { InitialMigration1681769270031 } from "./migrations/1681769270031-InitialMigration"
 
 const setDataSourceConfig = (): DataSourceOptions => {
   
@@ -12,8 +13,8 @@ const setDataSourceConfig = (): DataSourceOptions => {
         return {
             type: "postgres",
             url: process.env.DATABASE_URL,
-            entities: [Anuncio],
-            migrations: [createAnuncio1681241216367],
+            entities: [Anuncio,User],
+            migrations: [InitialMigration1681769270031],
         }
     }
 
@@ -35,8 +36,8 @@ const setDataSourceConfig = (): DataSourceOptions => {
         database: process.env.PGDATABASE,
         logging: true,
         synchronize: false,
-        entities: [Anuncio],
-        migrations: [createAnuncio1681241216367]
+        entities: [Anuncio,User],
+        migrations: [InitialMigration1681769270031]
     }
 }
 

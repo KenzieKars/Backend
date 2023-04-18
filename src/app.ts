@@ -5,6 +5,8 @@ import { errorHandle } from "./errors/errors"
 import cors from "cors"
 import { advertisementRoutes } from "./routes/advertisement.routes"
 import { pagination } from "typeorm-pagination"
+import userRoutes from "./routes/user.routes"
+import loginRoutes from "./routes/login.routes"
 
 
 const app = express()
@@ -25,6 +27,8 @@ app.use(
 )
 
 app.use("/advertisement", advertisementRoutes)
+app.use("/users", userRoutes);
+app.use("/login", loginRoutes);
 
 app.use(errorHandle)
 
