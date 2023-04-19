@@ -15,3 +15,5 @@ advertisementRoutes.get("/:id", getAdvertisementController)
 advertisementRoutes.delete("/:id", deleteAdvertisementController)
 
 advertisementRoutes.patch("/:id", updateAdvertisementController)
+
+advertisementRoutes.get("/users/:id", updateAdvertisementController)
