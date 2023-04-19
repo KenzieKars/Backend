@@ -7,11 +7,7 @@ import { userRequestSerializer, userUpdateSerializer,userLoginSerializer  } from
 
 const userRoutes = Router();
 
-userRoutes.post(
-  "/login",
-  ensureDataIsValidMiddleware(userLoginSerializer),
-  loginUserController
-);
+
 
 userRoutes.post(
   "",
@@ -21,7 +17,7 @@ userRoutes.post(
 
 userRoutes.get(
   "",
-  ensureAuthMiddleware,
+  ensureAuthMiddleware, 
   listUsersController
 );
 

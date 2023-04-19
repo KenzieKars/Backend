@@ -1,7 +1,6 @@
 export interface IUserRequest {
     nome: string
-    email: string
-    senha: string
+    email: string              
     telefone:string
     bio:string
     imagem:string

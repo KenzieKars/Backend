@@ -1,10 +1,12 @@
-import { Request, Response } from "express"
+import { Request, Response } from "express";
+import listAllWithUsersService from"../services/anuncios/listAllWithUsers.service"
 import { IAdvertisementRequest, IAdvertisementUpdate } from "../interfaces/advertisement.interfaces"
 import createAdvertisementService from "../services/anuncios/createAdvertisement.service"
 import getAllAdvertisementService from "../services/anuncios/getAllAdvertisement.service"
 import getAdvertisementService from "../services/anuncios/getAdvertisement.service"
 import deleteAdvertisementService from "../services/anuncios/deleteAdvertisement.service"
 import updateAdvertisementService from "../services/anuncios/updateAdvertisement.service"
+import { instanceToPlain } from "class-transformer";
 
 
 const createAdvertisementController = async (req: Request, res: Response) => {
@@ -41,10 +43,19 @@ const updateAdvertisementController = async (req: Request, res: Response) => {
     
 }
 
+
+
+const listAllWithUsersController = async (req: Request, res: Response) => {
+  const advertisement = await listAllWithUsersService();
+
+  return res.status(200).json(instanceToPlain(advertisement));
+};
+
 export {
     createAdvertisementController,
     getAllAdvertisementsController,
     getAdvertisementController,
     deleteAdvertisementController,
-    updateAdvertisementController
+    updateAdvertisementController,
+    listAllWithUsersController
 }
