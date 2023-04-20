@@ -45,11 +45,17 @@ const updateAdvertisementController = async (req: Request, res: Response) => {
 
 
 
-const listAllWithUsersController = async (req: Request, res: Response) => {
-  const advertisement = await listAllWithUsersService();
-
-  return res.status(200).json(instanceToPlain(advertisement));
-};
+const listAllWithUsersController = async (
+    req: Request,
+    res: Response
+  ) => {
+    const { id } = req.params;
+    const listUser = await listAllWithUsersService(id);
+  
+    return res.status(200).json(instanceToPlain(listUser));
+  };
+  
+  export default listAllWithUsersController;
 
 export {
     createAdvertisementController,

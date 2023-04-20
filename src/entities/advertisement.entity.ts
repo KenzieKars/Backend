@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -43,6 +44,7 @@ class Anuncio {
   atualizadoEm: Date;
 
   @ManyToOne(() => User, { onDelete: "CASCADE" })
+  @JoinColumn()
   user: User;
 }
 
