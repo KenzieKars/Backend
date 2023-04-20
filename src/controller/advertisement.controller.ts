@@ -10,9 +10,12 @@ import { instanceToPlain } from "class-transformer";
 
 
 const createAdvertisementController = async (req: Request, res: Response) => {
-    const anuncioData: IAdvertisementRequest = req.body
-    const advertisement = await createAdvertisementService(anuncioData)
-    return res.status(201).json(advertisement)
+    const { id } = req.user;
+    const data: IAdvertisementRequest = req.body;
+  
+    const announcement = await createAdvertisementService(id, data);
+  
+    return res.status(201).json(instanceToPlain(announcement));
     
 }
 
