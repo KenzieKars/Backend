@@ -44,7 +44,6 @@ class Anuncio {
   atualizadoEm: Date;
 
   @ManyToOne(() => User, { onDelete: "CASCADE" })
-  @JoinColumn()
   user: User;
 }
 
