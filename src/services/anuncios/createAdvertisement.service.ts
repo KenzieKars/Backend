@@ -12,6 +12,7 @@ const createAdvertisementService = async (
   id: string,
   data: IAdvertisementRequest
 ): Promise<IAdvertisementResponse> => {
+  console.log(id)
   const advertisementRepository = AppDataSource.getRepository(Anuncio);
   const userRepository = AppDataSource.getRepository(User);
 

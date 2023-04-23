@@ -7,13 +7,15 @@ import getAdvertisementService from "../services/anuncios/getAdvertisement.servi
 import deleteAdvertisementService from "../services/anuncios/deleteAdvertisement.service"
 import updateAdvertisementService from "../services/anuncios/updateAdvertisement.service"
 import { instanceToPlain } from "class-transformer";
+import jwt_decode from "jwt-decode";
 
 
 const createAdvertisementController = async (req: Request, res: Response) => {
-    const { id } = req.user;
     const data: IAdvertisementRequest = req.body;
-  
-    const announcement = await createAdvertisementService(id, data);
+    let token = req.headers.authorization.replace("Bearer ", "")
+    let decoded:any = jwt_decode(token)
+    const { id } = decoded.sub;
+    const announcement = await createAdvertisementService(decoded.sub, data);
   
     return res.status(201).json(instanceToPlain(announcement));
     
