@@ -27,7 +27,9 @@ const returnAdvertisementSerializer: SchemaOf<IAdvertisementResponse> = yup.obje
     imagens: yup.array(),
     ativo: yup.boolean(),
     criadoEm: yup.date(),
-    atualizadoEm: yup.date()
+    atualizadoEm: yup.date(),
+    user: yup.object()
+ 
 })
 
 const updateAdvertisementSerializer: SchemaOf<IAdvertisementUpdate> = yup.object().shape({
