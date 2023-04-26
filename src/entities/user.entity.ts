@@ -12,6 +12,7 @@ import {
 } from "typeorm";
 import { Anuncio } from "./advertisement.entity";
 import { hashSync, getRounds } from "bcryptjs";
+import { Exclude } from "class-transformer";
 
 @Entity("users")
 export class User {
@@ -51,8 +52,13 @@ export class User {
   @Column({ length: 120 })
   senha: string;
 
-  @Column({ default: true })
-  isActive: boolean;
+  @Column({ nullable: true })
+  @Exclude()
+  resetandoSenha: string;
+
+  @Column({ nullable: true })
+  @Exclude()
+  resetandoSenhaExpirada: Date;
 
   @BeforeUpdate()
   @BeforeInsert()

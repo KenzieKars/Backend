@@ -19,7 +19,6 @@ export interface IUserResponse {
     imagem:string
     cpf:string
     aniversario:string
-    isActive: boolean;
     vendedor?: boolean;
 }
 

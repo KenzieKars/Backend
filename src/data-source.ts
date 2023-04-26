@@ -3,7 +3,8 @@ import path from "path"
 import "dotenv/config"
 import { Anuncio } from "./entities/advertisement.entity"
 import { User } from "./entities/user.entity"
-import { InitialMigration1681769270031 } from "./migrations/1681769270031-InitialMigration"
+import { Migration1682367567168 } from "./migrations/1682367567168-migration"
+
 
 const setDataSourceConfig = (): DataSourceOptions => {
   
@@ -14,7 +15,7 @@ const setDataSourceConfig = (): DataSourceOptions => {
             type: "postgres",
             url: process.env.DATABASE_URL,
             entities: [Anuncio,User],
-            migrations: [InitialMigration1681769270031],
+            migrations: [Migration1682367567168],
         }
     }
 
@@ -37,7 +38,7 @@ const setDataSourceConfig = (): DataSourceOptions => {
         logging: true,
         synchronize: false,
         entities: [Anuncio,User],
-        migrations: [InitialMigration1681769270031]
+        migrations: [Migration1682367567168]
     }
 }
 

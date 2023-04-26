@@ -26,10 +26,6 @@ const loginUserService = async ({
     throw new AppError("Wrong email or password.", 403);
   }
 
-  if (!foundUser.isActive) {
-    throw new AppError("User is not active on database.");
-  }
-
   const passwordMatch = await compare(senha, foundUser.senha);
 
   if (!passwordMatch) {

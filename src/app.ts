@@ -7,6 +7,7 @@ import { advertisementRoutes } from "./routes/advertisement.routes"
 import { pagination } from "typeorm-pagination"
 import userRoutes from "./routes/user.routes"
 import loginRoutes from "./routes/login.routes"
+import senhaRoutes from "./routes/senha.routes"
 
 
 const app = express()
@@ -21,7 +22,7 @@ app.use(
         "Authorization",
         "authorization",
       ],
-      origin: ["http://localhost:3000"],
+      origin: ["http://localhost:3001"],
       methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
     })
 )
@@ -29,6 +30,7 @@ app.use(
 app.use("/advertisement", advertisementRoutes)
 app.use("/users", userRoutes);
 app.use("/login", loginRoutes);
+app.use("/senha", senhaRoutes);
 
 app.use(errorHandle)
 
