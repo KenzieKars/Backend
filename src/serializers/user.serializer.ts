@@ -16,7 +16,19 @@ const userRequestSerializer: SchemaOf<IUserRequest> = yup.object().shape({
   imagem: yup.string().required(),
   cpf: yup.string().required(),
   aniversario: yup.string().required(),
-  vendedor: yup.boolean().notRequired()
+  vendedor: yup.boolean().notRequired(),
+  address: yup.object().shape(
+    {
+        estado: yup.string().required(),
+        cep: yup.string().required(),
+        numero: yup.number(),
+        cidade: yup.string().required(),
+        rua: yup.string().required(),
+        id:yup.string().notRequired(),
+        complemento:yup.string().required()  
+    }
+  )  
+
 });
 
 const userResponseSerializer: SchemaOf<IUserResponse> = yup.object().shape({
@@ -30,7 +42,18 @@ const userResponseSerializer: SchemaOf<IUserResponse> = yup.object().shape({
   cpf: yup.string().required(),
   isActive: yup.boolean().notRequired(),
   aniversario: yup.string().required(),
-  vendedor: yup.boolean().notRequired()
+  vendedor: yup.boolean().notRequired(),
+  address: yup.object().shape(
+    {
+        estado: yup.string().required(),
+        cep: yup.string().required(),
+        numero: yup.number(),
+        cidade: yup.string().required(),
+        rua: yup.string().required(),
+        id:yup.string().notRequired(),
+        complemento:yup.string().required()  
+    }
+  )  
 });
 
 const userUpdateSerializer: SchemaOf<IUserUpdateRequest> = yup.object().shape({

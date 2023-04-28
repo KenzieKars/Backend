@@ -5,11 +5,19 @@ import {
   userResponseSerializer
 } from "../../serializers/user.serializer";
 import { AppError } from "../../errors/errors"
+import { IEndereco } from "../../interfaces/address.interfaces";
+import { Endereco } from "../../entities/address.entity";
 
 const createUserService = async (
-  userData: IUserRequest
+  userData: IUserRequest,
+  endereco: IEndereco
 ): Promise<IUserResponse> => {
   const userRepository = AppDataSource.getRepository(User);
+
+  const addressRepository = AppDataSource.getRepository(Endereco);
+
+  const userAddress: IEndereco = addressRepository.create(endereco);
+  await addressRepository.save(userAddress);
 
   const foundUser = await userRepository.findOne({
     where: {
@@ -22,6 +30,8 @@ const createUserService = async (
   }
 
   const createUser = userRepository.create(userData);
+
+  createUser.address = userAddress;
 
   await userRepository.save(createUser);
 

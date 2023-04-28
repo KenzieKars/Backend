@@ -9,7 +9,8 @@ import updateUserService from "../services/usuarios/updataUser.service";
 
 const createUserController = async (req: Request, res: Response) => {
     const userData: IUserRequest = req.body;
-    const newUser = await createUserService(userData);
+    const address = req.body.address;
+    const newUser = await createUserService(userData,address);
 
     return res.status(201).json(newUser);
 };
