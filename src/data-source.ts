@@ -4,7 +4,6 @@ import 'dotenv/config';
 import { Anuncio } from './entities/advertisement.entity';
 import { User } from './entities/user.entity';
 import { Endereco } from './entities/address.entity';
-// import { Migration1682692226716 } from "./migrations/1682692226716-migration"
 import { Migration1682712223454 } from './migrations/1682712223454-migration';
 
 const setDataSourceConfig = (): DataSourceOptions => {
