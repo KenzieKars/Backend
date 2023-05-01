@@ -13,7 +13,6 @@ export interface IUserResponse {
 	id: string;
 	nome: string;
 	email: string;
-	senha: string;
 	telefone: string;
 	bio: string;
 	imagem: string;

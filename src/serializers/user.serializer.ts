@@ -32,7 +32,6 @@ const userResponseSerializer: SchemaOf<IUserResponse> = yup.object().shape({
 	id: yup.string().notRequired(),
 	nome: yup.string().required(),
 	email: yup.string().email().required(),
-	senha: yup.string().required(),
 	telefone: yup.string().required(),
 	bio: yup.string().required(),
 	imagem: yup.string().required(),
