@@ -9,6 +9,7 @@ import userRoutes from "./routes/user.routes"
 import loginRoutes from "./routes/login.routes"
 import senhaRoutes from "./routes/senha.routes"
 import addressRoutes from "./routes/address.routes"
+import { commentsRoutes } from "./routes/comments.routes"
 
 
 const app = express()
@@ -33,6 +34,7 @@ app.use("/users", userRoutes);
 app.use("/login", loginRoutes);
 app.use("/senha", senhaRoutes);
 app.use("/address", addressRoutes)
+app.use("/comentario", commentsRoutes)
 
 app.use(errorHandle)
 

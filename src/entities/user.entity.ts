@@ -14,6 +14,7 @@ import { Anuncio } from "./advertisement.entity";
 import { hashSync, getRounds } from "bcryptjs";
 import { Exclude } from "class-transformer";
 import { Endereco } from "./address.entity";
+import { Comentario } from "./comments.entity";
 
 
 @Entity("users")
@@ -79,4 +80,9 @@ export class User {
   @OneToOne(() => Endereco, { eager: true })
   @JoinColumn()
   address: Endereco;
+
+  @OneToMany(() => Comentario, (comentario) => comentario.user, {
+    cascade: true,
+  })
+  comments: Comentario[];
 }

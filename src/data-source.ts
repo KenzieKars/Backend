@@ -4,7 +4,8 @@ import 'dotenv/config';
 import { Anuncio } from './entities/advertisement.entity';
 import { User } from './entities/user.entity';
 import { Endereco } from './entities/address.entity';
-import { Migration1682712223454 } from './migrations/1682712223454-migration';
+import { Comentario } from './entities/comments.entity';
+import { Migration1683052742332 } from './migrations/1683052742332-migration';
 
 const setDataSourceConfig = (): DataSourceOptions => {
 	const nodeEnv = process.env.NODE_ENV;
@@ -13,8 +14,8 @@ const setDataSourceConfig = (): DataSourceOptions => {
 		return {
 			type: 'postgres',
 			url: process.env.DATABASE_URL,
-			entities: [Anuncio, User, Endereco],
-			migrations: [Migration1682712223454],
+			entities: [Anuncio, User, Endereco,Comentario],
+			migrations: [Migration1683052742332],
 		};
 	}
 
@@ -36,8 +37,8 @@ const setDataSourceConfig = (): DataSourceOptions => {
 		database: process.env.PGDATABASE,
 		logging: true,
 		synchronize: false,
-		entities: [Anuncio, User, Endereco],
-		migrations: [Migration1682712223454],
+		entities: [Anuncio, User, Endereco,Comentario],
+		migrations: [Migration1683052742332],
 	};
 };
 
