@@ -36,7 +36,6 @@ const userResponseSerializer: SchemaOf<IUserResponse> = yup.object().shape({
 	bio: yup.string().required(),
 	imagem: yup.string().required(),
 	cpf: yup.string().required(),
-	isActive: yup.boolean().notRequired(),
 	aniversario: yup.string().required(),
 	vendedor: yup.boolean().notRequired(),
 	address: yup.object().shape({
