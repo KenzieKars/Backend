@@ -22,6 +22,16 @@
 
 >yarn typeorm migration:run -d src/data-source.ts
 
+<h4>Para acessar a documentação</h4>
+
+<p>Em seu terminal digite:</p>
+
+>yarn run dev
+
+<p>E acesse a rota:</p>
+
+>localhost:3000/api-docs
+
 <h3>Bibliotecas ultilizadas</h3>
 
 ><ol>
