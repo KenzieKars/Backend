@@ -1,0 +1,833 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Kenzie Kars API",
+        "description": "API do projeto final M6 da kenzie academy brasil",
+        "contact": {
+            "email": "wcarvalho516@gmail.com"
+        }
+    },
+    "version": "1.0.0",
+    "paths": {
+        "/users": {
+            "post": {
+                "summary": "Criação de usuarios",
+                "description": "Rota de criação de novos usuários",
+                "tags": [
+                    "users"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            },
+                            "examples": {
+                                "users": {
+                                    "value": {
+                                        "name": "wesley",
+                                        "email": "wesley@teste.com",
+                                        "telefone": "21 912345678",
+                                        "bio": "sou wesley dev full stack",
+                                        "imagem": "url de imagem",
+                                        "cpf": "12345678910",
+                                        "aniversario": "24/01/2000",
+                                        "vendedor": "true",
+                                        "estado": "Rio de janeiro",
+                                        "cep": "12345678",
+                                        "numero": 5,
+                                        "cidade": "rio de janeiro",
+                                        "rua": "rua de exemplos",
+                                        "complemento": "atras do kiosque de esquina",
+                                        "senha": "12345678"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "bad request"
+                    },
+                    "201": {
+                        "description": "created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "users": {
+                                        "value": {
+                                            "id": "e1962181-83db-48d5-80a7-1440e22ccc8e",
+                                            "name": "wesley",
+                                            "email": "wesley@teste.com",
+                                            "telefone": "21 912345678",
+                                            "bio": "sou wesley dev full stack",
+                                            "imagem": "url de imagem",
+                                            "cpf": "12345678910",
+                                            "aniversario": "24/01/2000",
+                                            "vendedor": "true",
+                                            "estado": "Rio de janeiro",
+                                            "cep": "12345678",
+                                            "numero": 5,
+                                            "cidade": "rio de janeiro",
+                                            "rua": "rua de exemplos",
+                                            "complemento": "atras do kiosque de esquina"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "lista todos os usuarios cadastrados",
+                "tags": [
+                    "users"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "400": {
+                        "description": "bad request"
+                    },
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "users": {
+                                        "value": {
+                                            "lista": "lista com todos os usuarios"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "login de usuarios",
+                "description": "Rota de login de usuários",
+                "tags": [
+                    "login"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            },
+                            "examples": {
+                                "login": {
+                                    "value": {
+                                        "email": "wesley@teste.com",
+                                        "senha": "12345678"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "bad request"
+                    },
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "login": {
+                                        "value": {
+                                            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Indlc2xleUBtYWlsLmNvbSIsImlhdCI6MTY4MjYzNzgzMiwiZXhwIjoxNjgyNzI0MjMyLCJzdWIiOiJlMTk2MjE4MS04M2RiLTQ4ZDUtODBhNy0xNDQwZTIyY2NjOGUifQ.nFxedNyg9_rG1u1r0mkkyG3s3SqU0ptUIrv-7UmkWOM"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/advertisement": {
+            "post": {
+                "summary": "cria anuncios",
+                "description": "rota de criação de anuncios",
+                "tags": [
+                    "advertisement"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            },
+                            "examples": {
+                                "advertisement": {
+                                    "value": {
+                                        "marca": "Ford",
+                                        "modelo": "mustang",
+                                        "ano": "1966",
+                                        "combustivel": "Flex",
+                                        "cor": "vermelho",
+                                        "quilometragem": "1000000",
+                                        "preco": "U$ 1000000.00",
+                                        "descricao": "descrever sobre o carro",
+                                        "imagens": "fotos do carro em url"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "bad request"
+                    },
+                    "201": {
+                        "description": "created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "advertisement": {
+                                        "value": {
+                                            "marca": "Ford",
+                                            "modelo": "mustang",
+                                            "ano": "1966",
+                                            "combustivel": "Flex",
+                                            "cor": "vermelho",
+                                            "quilometragem": "1000000",
+                                            "preco": "U$ 1000000.00",
+                                            "descricao": "descrever sobre o carro",
+                                            "imagens": "fotos do carro em url",
+                                            "ativo": true,
+                                            "criadoEm": "23/07/2022",
+                                            "name": "wesley",
+                                            "email": "wesley@teste.com",
+                                            "telefone": "21 912345678",
+                                            "bio": "sou wesley dev full stack",
+                                            "imagem": "url de imagem",
+                                            "cpf": "12345678910",
+                                            "aniversario": "24/01/2000",
+                                            "vendedor": "true"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "lista todos os anuncios cadastrados",
+                "tags": [
+                    "advertisement"
+                ],
+                "requestBody": {},
+                "responses": {
+                    "400": {
+                        "description": "bad request"
+                    },
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "users": {
+                                        "value": {
+                                            "lista": "lista com todos os anuncios"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comentario/:id": {
+            "post": {
+                "summary": "comentario de usuarios",
+                "description": "Rota de comentario de usuários",
+                "tags": [
+                    "comentario"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            },
+                            "examples": {
+                                "comentario": {
+                                    "value": {
+                                        "comentario": "Excelente carro , so falta um pouco de salsa e cebolinha"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "bad request"
+                    },
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "comentario": {
+                                        "value": {
+                                            "comentario": "Excelente carro , so falta um pouco de salsa e cebolinha",
+                                            "id": "e0341923-83db-48d5-80a7-1440e22ffhdm123"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "lista todos os usuarios cadastrados",
+                "tags": [
+                    "comentario"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "400": {
+                        "description": "bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "comentario": {
+                                        "value": {
+                                            "lista": "lista os comentarios"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "summary":"edita o comentario selecionado pelo id",
+                "tags":["comentario"],
+                "security":[{"BearerAuth":[]}],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            },
+                            "examples": {
+                                "comentario": {
+                                    "value": {
+                                       "comentario":"Agora tem salsa e cebolinha"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "400":{
+                        "description":"bad request"
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "404":{
+                        "description":"Not found"
+                    },
+                    "200":{
+                        "description":"ok",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"object"
+                                },
+                                "examples":{
+                                    "comentario":{
+                                        "value":{
+                                            "comentario":"Agora tem salsa e cebolinha",
+                                            "id": "e0341923-83db-48d5-80a7-1440e22ffhdm123"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "deleta o comentario selecionado pelo id",
+                "tags": [
+                    "comentario"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object"
+                        },
+                        "examples": {
+                                "value": {}
+                        }
+                    }
+                }},
+                "responses": {
+                    "400": {
+                        "description": "bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "204": {
+                        "description": "No content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "comentario": {
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/:id":{
+            "get": {
+                "summary": "lista o usuario pelo id",
+                "tags": [
+                    "users"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {},
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "comentario": {
+                                            "value": {
+                                                "id": "e1962181-83db-48d5-80a7-1440e22ccc8e",
+                                                "name": "wesley",
+                                                "email": "wesley@teste.com",
+                                                "telefone": "21 912345678",
+                                                "bio": "sou wesley dev full stack",
+                                                "imagem": "url de imagem",
+                                                "cpf": "12345678910",
+                                                "aniversario": "24/01/2000",
+                                                "vendedor": "true",
+                                                "estado": "Rio de janeiro",
+                                                "cep": "12345678",
+                                                "numero": 5,
+                                                "cidade": "rio de janeiro",
+                                                "rua": "rua de exemplos",
+                                                "complemento": "atras do kiosque de esquina"
+                                            }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "summary":"edita o usuario pelo id",
+                "tags":["users"],
+                "security":[{"BearerAuth":[]}],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            },
+                            "examples": {
+                                "users": {
+                                    "value": {
+                                        "email": "wesley@mail.com",
+                                        "name":"wesley carvalho"  
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "400":{
+                        "description":"bad request"
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "404":{
+                        "description":"Not found"
+                    },
+                    "200":{
+                        "description":"ok",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"object"
+                                },
+                                "examples":{
+                                    "comentario":{
+                                        "value":{
+                                            "id": "e1962181-83db-48d5-80a7-1440e22ccc8e",
+                                            "name": "wesley carvalho",
+                                            "email": "wesley@mail.com",
+                                            "telefone": "21 912345678",
+                                            "bio": "sou wesley dev full stack",
+                                            "imagem": "url de imagem",
+                                            "cpf": "12345678910",
+                                            "aniversario": "24/01/2000",
+                                            "vendedor": "true",
+                                            "estado": "Rio de janeiro",
+                                            "cep": "12345678",
+                                            "numero": 5,
+                                            "cidade": "rio de janeiro",
+                                            "rua": "rua de exemplos",
+                                            "complemento": "atras do kiosque de esquina"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "lista todos os usuarios cadastrados",
+                "tags": [
+                    "users"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object"
+                        },
+                        "examples": {
+                                "value": {}
+                        }
+                    }
+                }},
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "204": {
+                        "description": "No content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "comentario": {
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/advertisement/:id":{
+            "get": {
+                "summary": "lista o anuncio pelo id",
+                "tags": [
+                    "advertisement"
+                ],
+                "requestBody": {},
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "comentario": {
+                                            "value": {
+                                                "marca": "Ford",
+                                                "modelo": "mustang",
+                                                "ano": "1966",
+                                                "combustivel": "Flex",
+                                                "cor": "vermelho",
+                                                "quilometragem": "1000000",
+                                                "preco": "U$ 1000000.00",
+                                                "descricao": "descrever sobre o carro",
+                                                "imagens": "fotos do carro em url",
+                                                "ativo": true,
+                                                "criadoEm": "23/07/2022",
+                                                "name": "wesley",
+                                                "email": "wesley@teste.com",
+                                                "telefone": "21 912345678",
+                                                "bio": "sou wesley dev full stack",
+                                                "imagem": "url de imagem",
+                                                "cpf": "12345678910",
+                                                "aniversario": "24/01/2000",
+                                                "vendedor": "true"
+                                            }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "summary":"edita o anuncio pelo id",
+                "tags":["advertisement"],
+                "security":[{"BearerAuth":[]}],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            },
+                            "examples": {
+                                "advertisement": {
+                                    "value": {
+                                        "preco": "U$ 1500000"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "400":{
+                        "description":"bad request"
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "404":{
+                        "description":"Not found"
+                    },
+                    "200":{
+                        "description":"ok",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"object"
+                                },
+                                "examples":{
+                                    "advertisement":{
+                                        "value":{
+                                            "marca": "Ford",
+                                            "modelo": "mustang",
+                                            "ano": "1966",
+                                            "combustivel": "Flex",
+                                            "cor": "vermelho",
+                                            "quilometragem": "1000000",
+                                            "preco": "U$ 1500000",
+                                            "descricao": "descrever sobre o carro",
+                                            "imagens": "fotos do carro em url",
+                                            "ativo": true,
+                                            "criadoEm": "23/07/2022",
+                                            "name": "wesley",
+                                            "email": "wesley@teste.com",
+                                            "telefone": "21 912345678",
+                                            "bio": "sou wesley dev full stack",
+                                            "imagem": "url de imagem",
+                                            "cpf": "12345678910",
+                                            "aniversario": "24/01/2000",
+                                            "vendedor": "true"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "deleta o anuncio selecionado pelo id",
+                "tags": [
+                    "advertisement"
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object"
+                        },
+                        "examples": {
+                                "value": {}
+                        }
+                    }
+                }},
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "204": {
+                        "description": "No content",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "advertisement": {
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/advertisement/users/:id":{
+            "get": {
+                "summary": "lista todos os anuncios de um usuario",
+                "tags": [
+                    "advertisement"
+                ],
+                "requestBody": {},
+                "responses": {
+                    "400": {
+                        "description": "bad request"
+                    },
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "advertisement": {
+                                        "value": {
+                                            "name": "wesley",
+                                            "email": "wesley@teste.com",
+                                            "telefone": "21 912345678",
+                                            "bio": "sou wesley dev full stack",
+                                            "imagem": "url de imagem",
+                                            "cpf": "12345678910",
+                                            "aniversario": "24/01/2000",
+                                            "vendedor": "true",
+                                            "comentario":"Excelente carro , so falta um pouco de salsa e cebolinha"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
