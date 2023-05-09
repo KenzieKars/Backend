@@ -7,10 +7,11 @@ import updateCommentService from "../services/comentarios/updateComments.service
 
 const createCommentController = async (req: Request, res: Response) => {
   const data = req.body.comentario;
+  const editado = req.body.editado;
   const announcements = req.params.id;
   const { id } = req.user;
 
-  const comment = await createCommentService(data, announcements, id);
+  const comment = await createCommentService(data, editado, id, announcements);
 
   return res.status(201).json(instanceToPlain(comment));
 };
@@ -34,8 +35,9 @@ const deleteCommentController = async (req: Request, res: Response) => {
 const updateCommentController = async (req: Request, res: Response) => {
     const { id } = req.params;
     const newComment: string = req.body.comentario;
+    const editado: boolean = req.body.editado;
   
-    const updateComment = await updateCommentService(id, newComment);
+    const updateComment = await updateCommentService(id, newComment, editado);
   
     return res.status(200).json(updateComment);
 };
