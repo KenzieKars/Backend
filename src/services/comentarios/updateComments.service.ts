@@ -4,11 +4,11 @@ import { AppError } from "../../errors/errors";
 
 const updateCommentService = async (
   id: string,
-  comentario: string
+  comentario: string,
+  editado: boolean
 ): Promise<Comentario> => {
   const commentRepository = AppDataSource.getRepository(Comentario);
   const foundComment = await commentRepository.findOneBy({ id });
-
   if (!foundComment) {
     throw new AppError("Comment not found", 404);
   }
@@ -16,6 +16,7 @@ const updateCommentService = async (
   await commentRepository.update(id, {
     comentario: comentario ? comentario : foundComment.comentario,
     created_at: new Date(),
+    editado: true
   });
 
   const newComment = await commentRepository.findOneBy({ id });
