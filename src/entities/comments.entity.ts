@@ -16,6 +16,9 @@ import {
   
     @Column()
     comentario: string;
+
+    @Column()
+    editado: boolean;
   
     @CreateDateColumn()
     created_at: Date;
