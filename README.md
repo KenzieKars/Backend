@@ -32,6 +32,10 @@
 
 >localhost:3000/api-docs
 
+<h3>O deploy da API está localizado em:</h3>
+
+>https://kenzie-kars-sifj.onrender.com/
+
 <h3>Bibliotecas ultilizadas</h3>
 
 ><ol>
